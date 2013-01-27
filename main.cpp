@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "ImComp.h"
 #include <Windows.h>
 #include <stdio.h>
