@@ -195,34 +195,34 @@ image* ImComp::compareImages(image* _myImageA, image* _myImageB, unsigned char _
 
 image* ImComp::compareImagesMt(image* _myImageA, image* _myImageB, unsigned char _sensitivity, int threads)
 {
-	ImComp *_ImComp = new ImComp(_myImageA, _myImageB, _sensitivity);
+	ImComp *myImComp = new ImComp(_myImageA, _myImageB, _sensitivity);
 
-	int chunk = _ImComp->getHeight()/threads;
+	int chunk = myImComp->getHeight()/threads;
 
-	HANDLE *_handles;
-	_handles = new HANDLE[threads];
+	HANDLE *myHandles;
+	myHandles = new HANDLE[threads];
 	
 	for(char i=0; i<(threads); i++)
 	{
-		threadParams *_threadParams = new threadParams;
-		_threadParams->_ImComp = _ImComp;
+		threadParams *myThreadParams = new threadParams;
+		myThreadParams->_ImComp = myImComp;
 		if(i==(threads-1))
 		{
-			_threadParams->start=chunk*i;
-			_threadParams->end=_ImComp->getHeight();
+			myThreadParams->start=chunk*i;
+			myThreadParams->end=myImComp->getHeight();
 		}
 		else
 		{
-			_threadParams->start=chunk*i;
-			_threadParams->end=chunk*(i+1);
+			myThreadParams->start=chunk*i;
+			myThreadParams->end=chunk*(i+1);
 		}
 //		std::cout << "About to start thread " << (int)i << std::endl;
 
-		_handles[i]=(HANDLE)_beginthreadex(NULL, 0, _ImComp->makeThread, _threadParams, 0, NULL);
+		myHandles[i]=(HANDLE)_beginthreadex(NULL, 0, myImComp->makeThread, myThreadParams, 0, NULL);
 	}
-	WaitForMultipleObjects(threads, _handles, true, 5000);
-	delete[] _handles;
-	return _ImComp->returnOutput();
+	WaitForMultipleObjects(threads, myHandles, true, 5000);
+	delete[] myHandles;
+	return myImComp->returnOutput();
 }
 
 void ImComp::compareRegion(threadParams _threadParams)
