@@ -13,14 +13,12 @@ public:
 struct Palette
 {
 public:
-	// These arrays are palette sheets for each subpixel being measured (red, green and blue).
+	// These arrays are palettes  for each subpixel being measured (red, green and blue).
     // The difference in value between the two compared images subpixel will be used to pick 
     // a new value for the corresponding subpixel in the new output image.
     unsigned char paletteR[256];
 	unsigned char paletteG[256];
 	unsigned char paletteB[256];
-
-//	Palette(unsigned char _sensitivity);
 };
 
 class ImComp

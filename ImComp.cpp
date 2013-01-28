@@ -97,7 +97,7 @@ ImComp::ImComp(std::string _myImageA, image *_myImageB, unsigned char _sensitivi
 void ImComp::compareImages()
 {
 	//This loop calculates the difference between the values of each corresponding subpixel
-    //and calculates the difference, then references the palette sheet to determine the values
+    //and calculates the difference, then references the palette to determine the values
     //for the corresponding subpixels in the output image.
 	int y;
 	int x;
@@ -128,9 +128,11 @@ void ImComp::compareImages()
 
 			if(avg>maxAvg) maxAvg = avg;
 			
-			//set the current pixel in the new image to the values located in the palette sheet that
+			//set the current pixel in the new image to the values located in the palette that
 			//corresponds with the the average differencde calculated above.
-			output->setPixel(x, y, palette->paletteR[avg], palette->paletteG[avg], palette->paletteB[avg]);
+			output->setPixel(x, y, palette->paletteR[avg],
+								   palette->paletteG[avg],
+								   palette->paletteB[avg]);
 		}
 		x=0;
 	}
@@ -184,9 +186,11 @@ image* ImComp::compareImages(image* _myImageA, image* _myImageB, unsigned char _
 
 			if(avg>maxAvg) maxAvg = avg;
 			
-			//set the current pixel in the new image to the values located in the palette sheet that
+			//set the current pixel in the new image to the values located in the palette that
 			//corresponds with the the average differencde calculated above.
-			output->setPixel(x, y, palette->paletteR[avg], palette->paletteG[avg], palette->paletteB[avg]);
+			output->setPixel(x, y, palette->paletteR[avg],
+								   palette->paletteG[avg],
+								   palette->paletteB[avg]);
 		}
 		x=0;
 	}
@@ -228,7 +232,7 @@ image* ImComp::compareImagesMt(image* _myImageA, image* _myImageB, unsigned char
 void ImComp::compareRegion(threadParams _threadParams)
 {
 	//This loop calculates the difference between the values of each corresponding subpixel
-    //and calculates the difference, then references the palette sheet to determine the values
+    //and calculates the difference, then references the palette to determine the values
     //for the corresponding subpixels in the output image.
 	int y;
 	int x;
@@ -240,8 +244,6 @@ void ImComp::compareRegion(threadParams _threadParams)
 	int _rDiff;
 	int _gDiff;
 	int _bDiff;
-
-	
 
 	unsigned char pixelA[3];
 	unsigned char pixelB[3];
@@ -269,7 +271,7 @@ void ImComp::compareRegion(threadParams _threadParams)
 
 			if(_avg>_maxAvg) _maxAvg=_avg;
 			
-			//set the current pixel in the new image to the values located in the palette sheet that
+			//set the current pixel in the new image to the values located in the palette that
 			//corresponds with the the average differencde calculated above.
 			output->setPixel(x, y, palette->paletteR[_avg],
 								   palette->paletteG[_avg],
@@ -314,7 +316,7 @@ void ImComp::fillPalette(Palette* _palette, unsigned char _sensitivity)
 	if (_sensitivity > 64) throw std::string("Value too high");
 
 	int i;
-	for(i=0; i<_sensitivity; i++) //Blue indicates relatively minimal change. Filling out the blue palette sheet.
+	for(i=0; i<_sensitivity; i++) //Blue indicates relatively minimal change. Filling out the blue portion of the palette.
 	{
 		_palette->paletteR[i] = 0;  //Red is being filled with zeros here
 		_palette->paletteG[i] = 0;  //Blue is being filled with zeroes here
@@ -322,7 +324,7 @@ void ImComp::fillPalette(Palette* _palette, unsigned char _sensitivity)
 		else _palette->paletteB[i]=i*255/_sensitivity;
 	}
 
-	for(i=_sensitivity; i<_sensitivity*2; i++) //Filling out the green sheet.
+	for(i=_sensitivity; i<_sensitivity*2; i++) //Filling out the green palette.
 	{
 		if(((i-_sensitivity)*255/_sensitivity)>255) 
 		{
@@ -339,7 +341,7 @@ void ImComp::fillPalette(Palette* _palette, unsigned char _sensitivity)
 		_palette->paletteR[i] = 0;  //Red is still getting zeroes
 	}
 
-	for(i=i; i<_sensitivity*3; i++) //Red indicates severe change. Filling out the red sheet.
+	for(i=i; i<_sensitivity*3; i++) //Red indicates severe change. Filling out the red portion of the palette.
 	{
 		if((i-_sensitivity*3)*255/+_sensitivity>255)
 		{
@@ -363,7 +365,7 @@ void ImComp::fillPalette(Palette* _palette, unsigned char _sensitivity)
 		_palette->paletteB[i] = 0;
 	}
 
-	for(i=i; i<256; i++)   //Fill the rest of the sheet with nothing but red
+	for(i=i; i<256; i++)   //Fill the rest of the palette with nothing but red
 	{
 		_palette->paletteR[i] = 255;
 		_palette->paletteG[i] = 0;

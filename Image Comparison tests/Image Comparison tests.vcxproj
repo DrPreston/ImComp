@@ -85,8 +85,6 @@
     <ClInclude Include="..\bitmap_image.h" />
     <ClInclude Include="..\image.h" />
     <ClInclude Include="..\ImComp.h" />
-    <ClInclude Include="..\ImComp\stdafx_test.h" />
-    <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\bitmap_image.cpp" />

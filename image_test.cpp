@@ -54,7 +54,7 @@ namespace ImComp_test
 			Assert::AreEqual(myPixel[2], (unsigned char)50);
 		}
 
-		TEST_METHOD(Send_bad_filename_to_image_constructor)
+		TEST_METHOD(Test_image_constructor_with_bad_filename)
 		{
 			try
 			{
