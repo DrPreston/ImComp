@@ -2,7 +2,7 @@
 #include <Windows.h>
 #include <stdio.h>
 #include <process.h>
-#include <string>;
+#include <string>
 
 ImComp::ImComp(std::string _myImageA, std::string _myImageB, unsigned char _sensitivity)
 {

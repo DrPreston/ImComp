@@ -33,8 +33,8 @@ private:
 	unsigned char avg;
 	unsigned char maxAvg;
 
-	unsigned int width;
-	unsigned int height;
+	int width;
+	int height;
 
 	image *myImageA;
 	image *myImageB;
