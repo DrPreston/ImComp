@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2012 for Windows Desktop
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Image Comparison", "Image Comparison.vcxproj", "{7762422D-A06E-4B65-8BD8-966B6881DD1B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageComparison.UI", "Image Comparison.vcxproj", "{7762422D-A06E-4B65-8BD8-966B6881DD1B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Image Comparison tests", "Image Comparison tests\Image Comparison tests.vcxproj", "{0D052454-9BAF-4248-9D40-BE1BD34512A2}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageComparison.tests", "ImageComparison.tests\ImageComparison.tests.vcxproj", "{6849E1A1-8CEA-4FEF-A8D2-09132600D9E4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageComparison.library", "ImageComparison.library\ImageComparison.library.vcxproj", "{7205C156-063A-4071-8506-B801370942ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +17,14 @@ Global
 		{7762422D-A06E-4B65-8BD8-966B6881DD1B}.Debug|Win32.Build.0 = Debug|Win32
 		{7762422D-A06E-4B65-8BD8-966B6881DD1B}.Release|Win32.ActiveCfg = Release|Win32
 		{7762422D-A06E-4B65-8BD8-966B6881DD1B}.Release|Win32.Build.0 = Release|Win32
-		{0D052454-9BAF-4248-9D40-BE1BD34512A2}.Debug|Win32.ActiveCfg = Debug|Win32
-		{0D052454-9BAF-4248-9D40-BE1BD34512A2}.Debug|Win32.Build.0 = Debug|Win32
-		{0D052454-9BAF-4248-9D40-BE1BD34512A2}.Release|Win32.ActiveCfg = Release|Win32
-		{0D052454-9BAF-4248-9D40-BE1BD34512A2}.Release|Win32.Build.0 = Release|Win32
+		{6849E1A1-8CEA-4FEF-A8D2-09132600D9E4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6849E1A1-8CEA-4FEF-A8D2-09132600D9E4}.Debug|Win32.Build.0 = Debug|Win32
+		{6849E1A1-8CEA-4FEF-A8D2-09132600D9E4}.Release|Win32.ActiveCfg = Release|Win32
+		{6849E1A1-8CEA-4FEF-A8D2-09132600D9E4}.Release|Win32.Build.0 = Release|Win32
+		{7205C156-063A-4071-8506-B801370942ED}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7205C156-063A-4071-8506-B801370942ED}.Debug|Win32.Build.0 = Debug|Win32
+		{7205C156-063A-4071-8506-B801370942ED}.Release|Win32.ActiveCfg = Release|Win32
+		{7205C156-063A-4071-8506-B801370942ED}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

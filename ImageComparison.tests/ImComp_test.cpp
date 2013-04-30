@@ -1,6 +1,5 @@
 #include "CppUnitTest.h"
 #include "imcomp.h"
-#include "image.h"
 #include <Windows.h>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
