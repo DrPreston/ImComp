@@ -83,7 +83,6 @@ namespace ImComp_test
 			UnitTestRefImage->getPixel(50, 50, testPixel1);
 			output->getPixel(50, 50, testPixel2);
 
-			//Assert::AreEqual(*testPixel1, *testPixel2);
 			Assert::IsTrue(true);
 		}
 
@@ -114,7 +113,6 @@ namespace ImComp_test
 			UnitTestRefImage->getPixel(50, 50, testPixel1);
 			output->getPixel(50, 50, testPixel2);
 
-			//Assert::AreEqual(*testPixel1, *testPixel2);
 			Assert::IsTrue(true);
 		}
 
